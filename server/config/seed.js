@@ -6,9 +6,11 @@
 'use strict';
 
 var Thing = require('../api/thing/thing.model');
+var Task = require('../api/task/task.model');
 var User = require('../api/user/user.model');
 
 Thing.find({}).remove(function() {
+  console.log("seeding things...");
   Thing.create({
     name : 'Development Tools',
     info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
@@ -27,6 +29,29 @@ Thing.find({}).remove(function() {
   },{
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+  });
+});
+
+Task.find({}).remove(function() {
+  console.log("seeding tasks...");
+  Task.create({
+    name : 'Learn AngularJs',
+    info : 'Blubb',
+    estimation: 1,
+    status: 'ToDo',
+    personResponsible: 'Chuck Norris'
+  },{
+    name : 'Learn NodeJs',
+    info : 'Blah',
+    estimation: 5,
+    status: 'InProgress',
+    personResponsible: 'Jackie Chan'
+  },{
+    name : 'Learn Meteor',
+    info : 'huh',
+    estimation: 3,
+    status: 'Done',
+    personResponsible: 'Bruce Lee'
   });
 });
 

@@ -2,26 +2,106 @@ div(ng-include='"components/navbar/navbar.html"')
 
 header#banner.hero-unit
   .container
-    h1 'Allo, 'Allo!
-    p.lead Kick-start your next web app with Angular Fullstack
-    img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
+    h1.page-header Scrumboard
+    p.lead So much wow. So much sophisticated. So much Angularish. So much Nodish. So much MEANish.
+    img(src='assets/images/doge.png', alt='I\'m Doge' style="width: 10%;")
 
 .container
-  .row
-    .col-lg-12
-      h1.page-header Features:
-      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='thing in awesomeThings')
-        li
-          a(href='#', tooltip='{{thing.info}}')
-            | {{thing.name}}
-            button.close(type='button', ng-click='deleteThing(thing)') ×
+  div
+    .row
+      .col-md-4
+        h2="ToDo"
+        ul(ng-repeat="task in tasks | filter: { status: 'ToDo' }")
+          li
+            a(href='#', tooltip='{{task.info}}')
+              | {{task.name}}
+              button.close(type='button', ng-click='deleteTask(task)') ×
+            ul
+              
 
-  form.thing-form
-    label Syncs in realtime across clients
+            ul(ng-hide='editing', ng-click='editing = true')
+              li="Description: "
+                {{task.info}}
+              li="Estimation: "
+                {{task.estimation}}
+              li="Status: "
+                {{task.status}}
+              li="Responsible Person: "
+                {{task.personResponsible}}
+            form(ng-show='editing', ng-submit='editing = false')
+              ul
+                li="Description: "
+                  input(type='text', ng-model='task.info', placeholder='Name', ng-required='')
+                li="Estimation: "
+                  select.form-control(type='text', ng-model='task.estimation', ng-required='')
+                    option=1
+                    option=2
+                    option=3
+                    option=5
+                    option=8
+                li="Status: "
+                  select.form-control(type='text', ng-model='task.status', ng-required='')
+                    option="ToDo"
+                    option="InProgress"
+                    option="Done"
+                li="Responsible Person: "
+                  input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
+                button.btn.btn-primary(type='submit', ng-click='updateTask(task)') Save
+
+      .col-md-4
+        h2="In Progress"
+        ul(ng-repeat="task in tasks | filter: { status: 'InProgress' }")
+          li
+            a(href='#', tooltip='{{task.info}}')
+              | {{task.name}}
+              button.close(type='button', ng-click='deleteTask(task)') ×
+            ul
+              li="Description: "
+                {{task.info}}
+              li="Estimation: "
+                {{task.estimation}}
+              li="Status: "
+                {{task.status}}
+              li="Responsible Person: "
+                {{task.personResponsible}}
+      .col-md-4
+        h2="Done"
+        ul(ng-repeat="task in tasks | filter: { status: 'Done' }")
+          li
+            a(href='#', tooltip='{{task.info}}')
+              | {{task.name}}
+              button.close(type='button', ng-click='deleteTask(task)') ×
+            ul
+              li="Description: "
+                {{task.info}}
+              li="Estimation: "
+                {{task.estimation}}
+              li="Status: "
+                {{task.status}}
+              li="Responsible Person: "
+                {{task.personResponsible}}
+            
+
+  h2="Add Task"
+  form.task-form    
     p.input-group
-      input.form-control(type='text', placeholder='Add a new thing here.', ng-model='newThing')
+      input.form-control(type='text', placeholder='Add a new task here.', ng-model='newTask')
+      textarea.form-control(type='text', placeholder='Add a info here.', ng-model='newInfo')
+      select.form-control(type='text', ng-model='newEstimation')
+        option=1
+        option=2
+        option=3
+        option=5
+        option=8
+      select.form-control(type='text', ng-model='newStatus')
+        option="ToDo"
+        option="InProgress"
+        option="Done"
+      input.form-control(type='text', placeholder='Person Responsible', ng-model='newPersonResponsible')
+
+
       span.input-group-btn
-        button.btn.btn-primary(type='submit', ng-click='addThing()') Add New
+        button.btn.btn-primary(type='submit', ng-click='addTask()') Add New
 
 footer.footer
   .container
