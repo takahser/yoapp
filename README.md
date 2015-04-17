@@ -33,3 +33,24 @@ scrumboard app created with yeoman and the angular-fullstack generator
 
 4) Scaffold the Endpoint
 `yo angular-fullstack:endpoint task`
+
+This will create the model and API on the server:
+```
+server/api/task/index.js
+server/api/task/task.spec.js
+server/api/task/task.controller.js
+server/api/task/task.model.js  (optional)
+server/api/task/task.socket.js (optional)
+```
+
+5) Scaffold the route
+`yo angular-fullstack:route task`
+
+This will create the client files:
+```
+client/app/task/task.js
+client/app/task/task.controller.js
+client/app/task/task.controller.spec.js
+client/app/task/task.jade
+client/app/task/task.css
+```
