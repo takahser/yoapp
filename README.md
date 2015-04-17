@@ -25,8 +25,11 @@ scrumboard app created with yeoman and the angular-fullstack generator
     - Markup: Jade
     - Stylesheets: CSS
     - Angular Router: ui-router
-  - Server
-    - Database: None, MongoDB
-    - Authentication boilerplate: Yes, No
+- Server
+    - Database: MongoDB
+    - Authentication boilerplate: Yes
     - oAuth integrations: Facebook Twitter Google
-    - Socket.io integration: Yes, No
+    - Socket.io integration: Yes
+
+4) Scaffold the Endpoint
+`yo angular-fullstack:endpoint task`
