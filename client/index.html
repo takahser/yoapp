@@ -13,7 +13,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
-      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
       <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
       <!-- endbower -->
     <!-- endbuild -->
@@ -33,6 +32,8 @@
     <!-- MATERIALIZE: Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+    <!--Raleway Font-->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200,300' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="yoApp">
     <!--[if lt IE 7]>
@@ -93,5 +94,13 @@
           <script src="components/socket/socket.service.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
+        <!-- Materialize init -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="materialize/materialize.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".button-collapse").sideNav();
+    });
+  </script>
 </body>
 </html>

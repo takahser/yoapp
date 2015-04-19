@@ -4,7 +4,7 @@ angular.module('yoApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
-      'link': '/'
+      'link': '/task'
     }];
 
     $scope.isCollapsed = true;

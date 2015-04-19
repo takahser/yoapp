@@ -1,219 +1,251 @@
-div(ng-include='"components/navbar/navbar.html"')
+.navbar-fixed
+  .nav-unit
+    nav
+      .nav-wrapper.cyan.darken-3
+        .container
+          a.brand-logo(href='#!') Scrumboard
+          a.button-collapse(href='#', data-activates='mobile-demo')
+            i.mdi-navigation-menu
+          ul.right.hide-on-med-and-down
+                li
+                  a(href='#sectionScrumboard') Scrumboard
+                li
+                  a(href='#sectionAddTask') Add Task
+                li
+                  a(href='#sectionAbout') About
+              ul#mobile-demo.side-nav
+                li
+                  a.grey-text(href='#sectionScrum') Scrumboard
+                li
+                  a.grey-text(href='#sectionAddTask') Add Task
+                li
+                  a.grey-text(href='#sectionAbout') About
+//div(ng-include='"components/navbar/navbar.html"')
 
-header#banner.hero-unit
+header#banner.hero-unit.cyan.darken-2
   .container
-    h1.page-header Scrumboard
+    h1.page-header Le Scrumboard
     p.lead So much wow. So much sophisticated. So much Angularish. So much Nodish. So much MEANishh.
     img(src='assets/images/doge.png', alt='I\'m Doge' style="width: 10%;")
 
-.container
-  .row
 
-    // Tasks to do
-    .col.l4.m6.s12
-      h4="ToDo"
-      ul(ng-repeat="task in tasks | filter: { status: 'ToDo' }")
-        li
+section#sectionScrumboard.section-unit
 
-          // detail view
-          .row(ng-hide='editing', ng-click='editing = true')
-            .col.s12.m12
-              .card.red(style="margin:0;")
-                .card-content.white-text
-                  span.card-title="{{task.name}}"
-                  p="{{task.info}}"
-                .card-action
-                  .row.white-text
-                    .col.s6(style="padding:0;")
-                      i.tiny.mdi-action-perm-identity
-                      span=" {{task.personResponsible}}"
-                    .col.s3(style="padding:0;")
-                      i.tiny.mdi-device-access-time
-                      span=" {{task.estimation}}"
-                    .col.s3(style="padding:0;")
-                      i.tiny.mdi-action-label-outline
-                      span=" {{task.status}}"
+  .container(style="margin-top:15px;")
+    .row
 
-          // edit form
-          form(ng-show='editing', ng-submit='editing = false')
-            .row
+      // Tasks to do
+      .col.l4.m6.s12
+        h4="ToDo"
+        ul(ng-repeat="task in tasks | filter: { status: 'ToDo' }")
+          li
+
+            // detail view
+            .row(ng-hide='editing', ng-click='editing = true')
               .col.s12.m12
                 .card.red(style="margin:0;")
                   .card-content.white-text
                     span.card-title="{{task.name}}"
-                    textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
-                      label(for='description') Description
-                  .card-action.white-text(style="border: none;")
-                      p
-                        i.tiny.mdi-action-perm-identity=" Responsible Person"
-                        input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
-                      p
-                        i.tiny.mdi-device-access-time=" Estimate"
-                        select.form-control(type='text', ng-model='task.estimation', ng-required='')
-                          option=1
-                          option=2
-                          option=3
-                          option=5
-                          option=8
-                      p
-                        i.tiny.mdi-action-label-outline=" Status"
-                        select.form-control(type='text', ng-model='task.status', ng-required='')
-                          option="ToDo"
-                          option="InProgress"
-                          option="Done"
-                      button.btn.btn-primary(type='submit', ng-click='updateTask(task)') Save
+                    p="{{task.info}}"
+                  .card-action
+                    .row.white-text
+                      .col.s5(style="padding:0;")
+                        i.tiny.mdi-action-perm-identity
+                        span=" {{task.personResponsible}}"
+                      .col.s2(style="padding:0;")
+                        i.tiny.mdi-device-access-time
+                        span=" {{task.estimation}}"
+                      .col.s5(style="padding:0;")
+                        i.tiny.mdi-action-label-outline
+                        span=" {{task.status}}"
 
-    // Tasks in Progress
-    .col.l4.m6.s12
-      h4="In Progress"
-      ul(ng-repeat="task in tasks | filter: { status: 'InProgress' }")
-        li
+            // edit form
+            form(ng-show='editing', ng-submit='editing = false')
+              .row
+                .col.s12.m12
+                  .card.red(style="margin:0;")
+                    .card-content.white-text
+                      span.card-title="{{task.name}}"
+                      textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
+                        label(for='description') Description
+                    .card-action.white-text(style="border: none;")
+                        p
+                          i.tiny.mdi-action-perm-identity=" Responsible Person"
+                          input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
+                        p
+                          i.tiny.mdi-device-access-time=" Estimate"
+                          select.form-control(type='text', ng-model='task.estimation', ng-required='' class="browser-default black-text")
+                            option=1
+                            option=2
+                            option=3
+                            option=5
+                            option=8
+                        p
+                          i.tiny.mdi-action-label-outline=" Status"
+                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default black-text")
+                            option="ToDo"
+                            option="InProgress"
+                            option="Done"
+                        button.btn.btn-primary(type='submit', ng-click='updateTask(task)') Save
 
-          // detail view
-          .row(ng-hide='editing', ng-click='editing = true')
-            .col.s12.m12
-              .card.orange.darken-1(style="margin:0;")
-                .card-content.white-text
-                  span.card-title="{{task.name}}"
-                  p="{{task.info}}"
-                .card-action
-                  .row.white-text
-                    .col.s6(style="padding:0;")
-                      i.tiny.mdi-action-perm-identity
-                      span=" {{task.personResponsible}}"
-                    .col.s3(style="padding:0;")
-                      i.tiny.mdi-device-access-time
-                      span=" {{task.estimation}}"
-                    .col.s3(style="padding:0;")
-                      i.tiny.mdi-action-label-outline
-                      span=" {{task.status}}"
+      // Tasks in Progress
+      .col.l4.m6.s12
+        h4="In Progress"
+        ul(ng-repeat="task in tasks | filter: { status: 'InProgress' }")
+          li
 
-          // edit form
-          form(ng-show='editing', ng-submit='editing = false')
-            .row
+            // detail view
+            .row(ng-hide='editing', ng-click='editing = true')
               .col.s12.m12
                 .card.orange.darken-1(style="margin:0;")
                   .card-content.white-text
                     span.card-title="{{task.name}}"
-                    textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
-                      label(for='description') Description
-                  .card-action.white-text(style="border: none;")
-                      p
-                        i.tiny.mdi-action-perm-identity=" Responsible Person"
-                        input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
-                      p
-                        i.tiny.mdi-device-access-time=" Estimate"
-                        select.form-control(type='text', ng-model='task.estimation', ng-required='')
-                          option=1
-                          option=2
-                          option=3
-                          option=5
-                          option=8
-                      p
-                        i.tiny.mdi-action-label-outline=" Status"
-                        select.form-control(type='text', ng-model='task.status', ng-required='')
-                          option="ToDo"
-                          option="InProgress"
-                          option="Done"
-                      button.btn.btn-primary(type='submit', ng-click='updateTask(task)') Save
-    
-    // Tasks done
-    .col.l4.m6.s12
-      h4="Done"
-      ul(ng-repeat="task in tasks | filter: { status: 'Done' }")
-        li
-          // detail view
-          .row(ng-hide='editing', ng-click='editing = true')
-            .col.s12.m12
-              .card.green.darken-1(style="margin:0;")
-                .card-content.white-text
-                  span.card-title="{{task.name}}"
-                  p="{{task.info}}"
-                .card-action
-                  .row.white-text
-                    .col.s6(style="padding:0;")
-                      i.tiny.mdi-action-perm-identity
-                      span=" {{task.personResponsible}}"
-                    .col.s3(style="padding:0;")
-                      i.tiny.mdi-device-access-time
-                      span=" {{task.estimation}}"
-                    .col.s3(style="padding:0;")
-                      i.tiny.mdi-action-label-outline
-                      span=" {{task.status}}"
+                    p="{{task.info}}"
+                  .card-action
+                    .row.white-text
+                      .col.s5(style="padding:0;")
+                        i.tiny.mdi-action-perm-identity
+                        span=" {{task.personResponsible}}"
+                      .col.s2(style="padding:0;")
+                        i.tiny.mdi-device-access-time
+                        span=" {{task.estimation}}"
+                      .col.s5(style="padding:0;")
+                        i.tiny.mdi-action-label-outline
+                        span=" In Progress"
 
-          // edit form
-          form(ng-show='editing', ng-submit='editing = false')
-            .row
+            // edit form
+            form(ng-show='editing', ng-submit='editing = false')
+              .row
+                .col.s12.m12
+                  .card.orange.darken-1(style="margin:0;")
+                    .card-content.white-text
+                      span.card-title="{{task.name}}"
+                      textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
+                        label(for='description') Description
+                    .card-action.white-text(style="border: none;")
+                        p
+                          i.tiny.mdi-action-perm-identity=" Responsible Person"
+                          input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
+                        p
+                          i.tiny.mdi-device-access-time=" Estimate"
+                          select.form-control(type='text', ng-model='task.estimation', ng-required='' class="browser-default black-text")
+                            option=1
+                            option=2
+                            option=3
+                            option=5
+                            option=8
+                        p
+                          i.tiny.mdi-action-label-outline=" Status"
+                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default black-text")
+                            option="ToDo"
+                            option="InProgress"
+                            option="Done"
+                        button.btn.btn-primary(type='submit', ng-click='updateTask(task)') Save
+      
+      // Tasks done
+      .col.l4.m6.s12
+        h4="Done"
+        ul(ng-repeat="task in tasks | filter: { status: 'Done' }")
+          li
+            // detail view
+            .row(ng-hide='editing', ng-click='editing = true')
               .col.s12.m12
                 .card.green.darken-1(style="margin:0;")
                   .card-content.white-text
                     span.card-title="{{task.name}}"
-                    textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
-                      label(for='description') Description
-                  .card-action.white-text(style="border: none;")
-                      p
-                        i.tiny.mdi-action-perm-identity=" Responsible Person"
-                        input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
-                      p
-                        i.tiny.mdi-device-access-time=" Estimate"
-                        select.form-control(type='text', ng-model='task.estimation', ng-required='')
-                          option=1
-                          option=2
-                          option=3
-                          option=5
-                          option=8
-                      p
-                        i.tiny.mdi-action-label-outline=" Status"
-                        select.form-control(type='text', ng-model='task.status', ng-required='')
-                          option="ToDo"
-                          option="InProgress"
-                          option="Done"
-                      button.btn.btn-primary(type='submit', ng-click='updateTask(task)') Save
-            
-  .row
-    .col.s12
-      h4="Add Task"
-      form.task-form    
-        p.input-group
-          .row
-            .input-field.col.s12
-              input#newTask(type='text', ng-model='newTask')
-              label(for='newTask') Title
-              //textarea.form-control(type='text', placeholder='Add a info here.', ng-model='newInfo')
-            
-            .input-field.col.s12
-              textarea#newInfo.materialize-textarea(type='text', ng-model='newInfo', length='120')
-              label(for='newInfo') Description
+                    p="{{task.info}}"
+                  .card-action
+                    .row.white-text
+                      .col.s5(style="padding:0;")
+                        i.tiny.mdi-action-perm-identity
+                        span=" {{task.personResponsible}}"
+                      .col.s2(style="padding:0;")
+                        i.tiny.mdi-device-access-time
+                        span=" {{task.estimation}}"
+                      .col.s5(style="padding:0;")
+                        i.tiny.mdi-action-label-outline
+                        span=" {{task.status}}"
 
-            .input-field.col.s6
-              select.browser-default(ng-model='newEstimation')
-                option(value='', selected, disabled) Estimate
-                option(value='1') 1
-                option(value='2') 2
-                option(value='3') 3
-                option(value='5') 5
-                option(value='8') 8
-            
-            .input-field.col.s6
-              select.browser-default(ng-model='newStatus')
-                option(value='', selected, disabled) Status
-                option(value='ToDo') ToDo
-                option(value='InProgress') In Progress
-                option(value='Done') Done
+            // edit form
+            form(ng-show='editing', ng-submit='editing = false')
+              .row
+                .col.s12.m12
+                  .card.green.darken-1(style="margin:0;")
+                    .card-content.white-text
+                      span.card-title="{{task.name}}"
+                      textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
+                        label(for='description') Description
+                    .card-action.white-text(style="border: none;")
+                        p
+                          i.tiny.mdi-action-perm-identity=" Responsible Person"
+                          input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
+                        p
+                          i.tiny.mdi-device-access-time=" Estimate"
+                          select.form-control(type='text', ng-model='task.estimation', ng-required='' class="browser-default black-text")
+                            option=1
+                            option=2
+                            option=3
+                            option=5
+                            option=8
+                        p
+                          i.tiny.mdi-action-label-outline=" Status"
+                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default black-text")
+                            option="ToDo"
+                            option="InProgress"
+                            option="Done"
+                        button.btn.btn-primary(type='submit', ng-click='updateTask(task)') Save
 
-            .input-field.col.s12
-              input#newPersonResponsible(type='text', ng-model='newPersonResponsible', length='100')
-              label(for='newPersonResponsible') Person Responsible
+section#sectionAddTask.section-unit.blue-grey.lighten-5
+  .container
+    .row
+      .col.s12
+        h4="Add Task"
+        form.task-form    
+          p.input-group
+            .row
+              .input-field.col.s12
+                input#newTask(type='text', ng-model='newTask')
+                label(for='newTask') Title
+                //textarea.form-control(type='text', placeholder='Add a info here.', ng-model='newInfo')
+              
+              .input-field.col.s12
+                textarea#newInfo.materialize-textarea(type='text', ng-model='newInfo', length='120')
+                label(for='newInfo') Description
 
-            .input.field.col.s12
-              span.input-group-btn
-                button.btn(type='submit', ng-click='addTask()') Add New
+              .input-field.col.s6
+                select.browser-default(ng-model='newEstimation')
+                  option(value='', selected, disabled) Estimate
+                  option(value='1') 1
+                  option(value='2') 2
+                  option(value='3') 3
+                  option(value='5') 5
+                  option(value='8') 8
+              
+              .input-field.col.s6
+                select.browser-default(ng-model='newStatus')
+                  option(value='', selected, disabled) Status
+                  option(value='ToDo') ToDo
+                  option(value='InProgress') In Progress
+                  option(value='Done') Done
 
-footer.footer
+              .input-field.col.s12
+                input#newPersonResponsible(type='text', ng-model='newPersonResponsible', length='100')
+                label(for='newPersonResponsible') Person Responsible
+
+              .input.field.col.s12
+                span.input-group-btn
+                  button.btn(type='submit', ng-click='addTask()') Add New
+
+section#sectionAbout.section-unit
+  .container
+    .row
+      .col.s12
+        h4="About"
+        p="Autor: Seraya Takahahashi"
+
+footer.footer.blue-grey.lighten-5
   .container
     p
-      | Angular Fullstack v2.0.13
+      | Scrumboard V 1.0
       = ' | '
-      a(href='https://twitter.com/tyhenkel') @tyhenkel
-      = ' | '
-      a(href='https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open') Issues
+      a(href='https://github.com/takahser/yoapp') Github
