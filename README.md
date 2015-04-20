@@ -23,20 +23,27 @@ $('#greet-form input.user-name').on('value', function() {
     $('#greet-form div.user-name').text('Hello ' + this.val() + '!'); 
 });
 ```
+
     - with two-way data binding and AngularJs
 ```
 <input ng-model="user.name" type="text" />
 Hello {{user.name}}!
 ```
+
 - bigger popularity & community
 - cleaner & slimer markup
     - AngularJs
+
+```
 <ul> 
     <li ng-repeat="framework in frameworks" title="{{framework.description}}">               
                   {{framework.name}} 
     </li> 
 </ul>
+```
+
     - BackboneJs
+```
 <ul> 
     <% _.each(frameworks, function(framework) { %> 
         <li title="<%- framework.description %>"> 
@@ -44,8 +51,7 @@ Hello {{user.name}}!
         </li> 
     <% }); %> 
 </ul>
-
-
+```
 
 ## steps taken
 
