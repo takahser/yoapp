@@ -57,3 +57,22 @@ client/app/task/task.controller.spec.js
 client/app/task/task.jade
 client/app/task/task.css
 ```
+
+6) Extend the schema by editing the `/server/api/task/task.model.js` file
+```
+var TaskSchema = new Schema({
+  name: String,
+  info: String,
+  estimation: Number,
+  status: String,
+  personResponsible: String,
+  active: Boolean
+});
+```
+
+7) Add to the controller on the client `client/app/task/task.controller.js`
+
+- populate `$scope.tasks = [];` array by consuming the `/api/tasks` api
+- methods for CRUD functionality
+
+8) Complete by implementing the view `client/app/task/task.jade` and stylesheets
