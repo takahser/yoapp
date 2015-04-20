@@ -47,7 +47,7 @@ section#sectionScrumboard.section-unit
                   .card-content.white-text
                     span.card-title="{{task.name}}"
                     p="{{task.info}}"
-                  .card-action
+                  .card-action(style="border:none;")
                     .row.white-text
                       .col.s5(style="padding:0;")
                         i.tiny.mdi-action-perm-identity
@@ -58,6 +58,14 @@ section#sectionScrumboard.section-unit
                       .col.s5(style="padding:0;")
                         i.tiny.mdi-action-label-outline
                         span=" {{task.status}}"
+                  .card-action
+                    .row.white-text
+                      .col.s5(style='padding: 0;')
+                        &nbsp;
+                      .col.s2(style='padding: 0;')
+                        i.tiny.mdi-action-delete(ng-click="deleteTask(task)")
+                      .col.s5(style='padding: 0;')
+                        i.tiny.mdi-navigation-chevron-right(ng-click="updateTaskStatus(task, 'InProgress')")
 
             // edit form
             form(ng-show='editing', ng-submit='editing = false')
@@ -83,7 +91,7 @@ section#sectionScrumboard.section-unit
                             option=8
                         p
                           i.tiny.mdi-action-label-outline=" Status"
-                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default black-text")
+                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default grey-text" ng-change="updateTask(task)" disabled)
                             option="ToDo"
                             option="InProgress"
                             option="Done"
@@ -113,6 +121,14 @@ section#sectionScrumboard.section-unit
                       .col.s5(style="padding:0;")
                         i.tiny.mdi-action-label-outline
                         span=" In Progress"
+                  .card-action
+                    .row.white-text
+                      .col.s5(style='padding: 0;')
+                        i.tiny.mdi-navigation-chevron-left(ng-click="updateTaskStatus(task, 'ToDo')")
+                      .col.s2(style='padding: 0;')
+                        i.tiny.mdi-action-delete(ng-click="deleteTask(task)")
+                      .col.s5(style='padding: 0;')
+                        i.tiny.mdi-navigation-chevron-right(ng-click="updateTaskStatus(task, 'Done')")
 
             // edit form
             form(ng-show='editing', ng-submit='editing = false')
@@ -138,7 +154,7 @@ section#sectionScrumboard.section-unit
                             option=8
                         p
                           i.tiny.mdi-action-label-outline=" Status"
-                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default black-text")
+                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default grey-text" disabled)
                             option="ToDo"
                             option="InProgress"
                             option="Done"
@@ -167,6 +183,14 @@ section#sectionScrumboard.section-unit
                       .col.s5(style="padding:0;")
                         i.tiny.mdi-action-label-outline
                         span=" {{task.status}}"
+                  .card-action
+                    .row.white-text
+                      .col.s5(style='padding: 0;')
+                        i.tiny.mdi-navigation-chevron-left(ng-click="updateTaskStatus(task, 'InProgress')")
+                      .col.s2(style='padding: 0;')
+                        i.tiny.mdi-action-delete(ng-click="deleteTask(task)")
+                      .col.s5(style='padding: 0;')
+                        &nbsp;
 
             // edit form
             form(ng-show='editing', ng-submit='editing = false')
@@ -192,7 +216,7 @@ section#sectionScrumboard.section-unit
                             option=8
                         p
                           i.tiny.mdi-action-label-outline=" Status"
-                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default black-text")
+                          select.form-control(type='text', ng-model='task.status', ng-required='' class="browser-default grey-text" disabled)
                             option="ToDo"
                             option="InProgress"
                             option="Done"

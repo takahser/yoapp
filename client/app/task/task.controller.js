@@ -24,8 +24,16 @@ angular.module('yoApp')
       console.log($scope);
       console.log(task);
       $http.put('/api/tasks/' + task._id, task);
-      
     };
+
+    $scope.updateTaskStatus = function(task, status) {
+      console.log($scope);
+      console.log(task);
+      task.status = status;
+      $http.put('/api/tasks/' + task._id, task);
+    };
+
+
 
     $scope.deleteTask = function(task) {
       $http.delete('/api/tasks/' + task._id);
