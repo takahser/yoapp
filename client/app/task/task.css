@@ -1,8 +1,16 @@
 #banner img{
   transition: 2s;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
 #banner img:hover{
   transform: rotate(720deg);
 }
-/* Many rotations. Such transitions. Wow. */
+
+.card-action-link-item {
+    padding: 0;
+    cursor: pointer;
+}

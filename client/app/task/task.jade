@@ -3,7 +3,7 @@
     nav
       .nav-wrapper.cyan.darken-3
         .container
-          a.brand-logo(href='#!') Scrumboard
+          a.brand-logo(href='#!') yoscrum
           a.button-collapse(href='#', data-activates='mobile-demo')
             i.mdi-navigation-menu
           ul.right.hide-on-med-and-down
@@ -24,7 +24,7 @@
 
 header#banner.hero-unit.cyan.darken-2
   .container
-    h1.page-header Le Scrumboard
+    h1.page-header Le Yoscrum
     p.lead So much wow. So much sophisticated. Very Angularish. Many Nodish. So much MEANishh. Wow.
     img(src='assets/images/doge.png', alt='I\'m Doge' style="width: 10%;")
 
@@ -60,13 +60,12 @@ section#sectionScrumboard.section-unit
                         span=" {{task.status}}"
                   .card-action
                     .row.white-text
-                      .col.s5(style='padding: 0;')
+                      .col.s5(class='card-action-link-item')
                         &nbsp;
-                      .col.s2(style='padding: 0;')
-                        i.tiny.mdi-action-delete(ng-click="deleteTask(task)")
-                      .col.s5(style='padding: 0;')
-                        i.tiny.mdi-navigation-chevron-right(ng-click="updateTaskStatus(task, 'InProgress')")
-
+                      .col.s2
+                        i.tiny.mdi-action-delete(class='card-action-link-item' ng-click="deleteTask(task)")
+                      .col.s5(class='card-action-link-item' ng-click="updateTaskStatus(task, 'InProgress')")
+                        i.tiny.mdi-navigation-chevron-right
             // edit form
             form(ng-show='editing', ng-submit='editing = false')
               .row
@@ -110,7 +109,7 @@ section#sectionScrumboard.section-unit
                   .card-content.white-text
                     span.card-title="{{task.name}}"
                     p="{{task.info}}"
-                  .card-action
+                  .card-action(style="border:none;")
                     .row.white-text
                       .col.s5(style="padding:0;")
                         i.tiny.mdi-action-perm-identity
@@ -123,12 +122,12 @@ section#sectionScrumboard.section-unit
                         span=" In Progress"
                   .card-action
                     .row.white-text
-                      .col.s5(style='padding: 0;')
-                        i.tiny.mdi-navigation-chevron-left(ng-click="updateTaskStatus(task, 'ToDo')")
-                      .col.s2(style='padding: 0;')
-                        i.tiny.mdi-action-delete(ng-click="deleteTask(task)")
-                      .col.s5(style='padding: 0;')
-                        i.tiny.mdi-navigation-chevron-right(ng-click="updateTaskStatus(task, 'Done')")
+                      .col.s5(class='card-action-link-item' ng-click="updateTaskStatus(task, 'ToDo')")
+                        i.tiny.mdi-navigation-chevron-left
+                      .col.s2
+                        i.tiny.mdi-action-delete(class='card-action-link-item' ng-click="deleteTask(task)")
+                      .col.s5(class='card-action-link-item' ng-click="updateTaskStatus(task, 'Done')")
+                        i.tiny.mdi-navigation-chevron-right
 
             // edit form
             form(ng-show='editing', ng-submit='editing = false')
@@ -172,7 +171,7 @@ section#sectionScrumboard.section-unit
                   .card-content.white-text
                     span.card-title="{{task.name}}"
                     p="{{task.info}}"
-                  .card-action
+                  .card-action(style="border:none;")
                     .row.white-text
                       .col.s5(style="padding:0;")
                         i.tiny.mdi-action-perm-identity
@@ -185,11 +184,11 @@ section#sectionScrumboard.section-unit
                         span=" {{task.status}}"
                   .card-action
                     .row.white-text
-                      .col.s5(style='padding: 0;')
-                        i.tiny.mdi-navigation-chevron-left(ng-click="updateTaskStatus(task, 'InProgress')")
-                      .col.s2(style='padding: 0;')
-                        i.tiny.mdi-action-delete(ng-click="deleteTask(task)")
-                      .col.s5(style='padding: 0;')
+                      .col.s5(class='card-action-link-item' ng-click="updateTaskStatus(task, 'InProgress')")
+                        i.tiny.mdi-navigation-chevron-left
+                      .col.s2
+                        i.tiny.mdi-action-delete(class='card-action-link-item' ng-click="deleteTask(task)")
+                      .col.s5(class='card-action-link-item')
                         &nbsp;
 
             // edit form

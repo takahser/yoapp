@@ -33,8 +33,6 @@ angular.module('yoApp')
       $http.put('/api/tasks/' + task._id, task);
     };
 
-
-
     $scope.deleteTask = function(task) {
       $http.delete('/api/tasks/' + task._id);
     };
