@@ -24,12 +24,11 @@ The main reasons I prefered AngularJs over BackboneJs are:
         <input type="text" class="user-name" />
         <div class="user-name"></div>
     </div>
-    ```
-    ```
-    $('#greet-form input.user-name').on('value', function() { 
-        $('#greet-form div.user-name').text('Hello ' + this.val() + '!'); 
-    });
-
+    <script>
+        $('#greet-form input.user-name').on('value', function() { 
+            $('#greet-form div.user-name').text('Hello ' + this.val() + '!'); 
+        });
+    </script>
     ```
 
     - with two-way data binding and AngularJs
