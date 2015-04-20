@@ -1,0 +1,8 @@
+#banner img{
+  transition: 2s;
+}
+
+#banner img:hover{
+  transform: rotate(720deg);
+}
+/* Many rotations. Such transitions. Wow. */
