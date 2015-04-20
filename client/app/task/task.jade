@@ -263,14 +263,54 @@ section#sectionAddTask.section-unit.blue-grey.lighten-5
                   button.btn(type='submit', ng-click='addTask()') Add New
 
 section#sectionAbout.section-unit
-  .container
+  .container(style="margin-top:15px")
     .row
       .col.s12
         h4="About"
+        p="I made 'yoscrum' as a school project at my university "
+          a(href="http://www.zhaw.ch/") Zurich University of Applied Sciences (ZHAW)
+          |. It represents a simple Scrumboard where tasks can be added, edited and moved between the available states. 
+        br
+        h5="Technologies"
+        p="The following technologies have been used."
+        ul
+          li
+            | Web Server: 
+            a(href='https://nodejs.org/') node.js
+          li
+            | REST API: 
+            a(href='https://nodejs.org/') node.js
+          li
+            | Frontend Application: 
+            a(href='http://jade-lang.com/') Jade
+            | , 
+            a(href='https://angularjs.org/') AngularJs
+            | , 
+            a(href='http://materializecss.com/') Materialize
+          li
+            | Websockets: 
+            a(href='http://socket.io/') socket.io
+          li
+            | Persistence: 
+            a(href='https://www.mongodb.org/') mongoDB
+          li
+            | Testing: 
+            a(href='http://jasmine.github.io') Jasmine
+            | , 
+            a(href='http://phantomjs.org') PhantomJs
+            | , 
+            a(href='http://karma-runner.github.io') Karma
+        p="More information about the implementation please can be found on the readme page on "
+          a(href='https://github.com/takahser/yoapp') Github
+        br
+        h5="How to add, edit & move a task"
+        iframe(width="854" height="510" src="https://www.youtube.com/embed/vQYu6S7Lnh8" frameborder="0" allowfullscreen)
+        br
+        br
+        h5="Copyright"
         p="Autor: "
           a(href='https://github.com/takahser') takahser
         p="License: MIT"
-
 footer.footer.blue-grey.lighten-5
   .container
     p
