@@ -4,6 +4,14 @@ scrumboard app created with the yeoman angular-fullstack generator
 ## intro
 I decided to use the great yeoman angular-fullstack generator, whose purpose it is to create MEAN stack applications, using MongoDB, Express, AngularJS, and Node. It's also capable of scaffolding lots of boilerplate code, which saves time and resources at the development.
 
+## architecture
+
+- Web Server: [node.js](https://nodejs.org/)
+- REST API: [node.js](https://nodejs.org/)
+- Frontend Application: [Jade](http://jade-lang.com/), [AngularJs](https://angularjs.org/), [Materialize](http://materializecss.com/)
+- Websockets: [socket.io](http://socket.io/)
+- Persistence: [mongoDB](https://www.mongodb.org/)
+
 ## steps taken
 
 ### install yeoman & generator
