@@ -18,11 +18,11 @@ The main reasons I prefered AngularJs over BackboneJs are:
 
 - it provides two-way data binding
     - traditional way without two-way data binding
-```
-$('#greet-form input.user-name').on('value', function() { 
-    $('#greet-form div.user-name').text('Hello ' + this.val() + '!'); 
-});
-```
+    ```
+    $('#greet-form input.user-name').on('value', function() { 
+        $('#greet-form div.user-name').text('Hello ' + this.val() + '!'); 
+    });
+    ```
 
     - with two-way data binding and AngularJs
 
