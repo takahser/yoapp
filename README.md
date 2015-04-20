@@ -6,6 +6,8 @@ I decided to use the great yeoman angular-fullstack generator, whose purpose it 
 
 ## architecture
 
+### technologies
+
 - Web Server: [node.js](https://nodejs.org/)
 - REST API: [node.js](https://nodejs.org/)
 - Frontend Application: [Jade](http://jade-lang.com/), [AngularJs](https://angularjs.org/), [Materialize](http://materializecss.com/)
@@ -13,7 +15,7 @@ I decided to use the great yeoman angular-fullstack generator, whose purpose it 
 - Persistence: [mongoDB](https://www.mongodb.org/)
 - Testing: [Jasmine](http://jasmine.github.io), [PhantomJs](http://phantomjs.org), [Karma](http://karma-runner.github.io)
 
-### Frontent Framework
+### frontent framework
 
 The main reasons I prefered AngularJs over BackboneJs are:
 
@@ -42,8 +44,8 @@ The main reasons I prefered AngularJs over BackboneJs are:
     - AngularJs
     ```
     <ul> 
-        <li ng-repeat="framework in frameworks" title="{{framework.description}}">               
-                      {{framework.name}} 
+        <li ng-repeat="framework in frameworks" title="{{framework.description}}">
+          {{framework.name}} 
         </li> 
     </ul>
     ```
@@ -131,3 +133,29 @@ var TaskSchema = new Schema({
 - methods for CRUD functionality
 
 8) Complete by implementing the view `client/app/task/task.jade` and stylesheets
+
+## deployment
+
+1) clone `yoscrum` and `cd` into it:
+
+    git clone https://github.com/takahser/yoscrum && cd yoscrum
+
+2) scaffold a heroku app:
+
+    yo angular-fullstack:heroku
+
+As we are using mongodb, add an addon that provides a mongodb. Instead of the `mongohq` addon mentioned in the documentation we use `mongolab` as it provides a free plan.
+
+3) add the `mongolab` heroku addon that provides mongodb by changing into the `dist/` directory and running
+
+    heroku addons:add mongolab:sandbox
+
+4) change back to the root of the yoscrum application folder and run
+
+    grunt build
+
+to build the app to the `dist/` directory
+
+5) deploy the app using
+
+    grunt buildcontrol:heroku
