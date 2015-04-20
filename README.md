@@ -18,42 +18,39 @@ The main reasons I prefered AngularJs over BackboneJs are:
 
 - it provides two-way data binding
     - traditional way without two-way data binding
-```
-$('#greet-form input.user-name').on('value', function() { 
-    $('#greet-form div.user-name').text('Hello ' + this.val() + '!'); 
-});
-```
+    ```
+    $('#greet-form input.user-name').on('value', function() { 
+        $('#greet-form div.user-name').text('Hello ' + this.val() + '!'); 
+    });
+    ```
 
     - with two-way data binding and AngularJs
-
-```
-<input ng-model="user.name" type="text" />
-Hello {{user.name}}!
-```
+    ```
+    <input ng-model="user.name" type="text" />
+    Hello {{user.name}}!
+    ```
 
 - bigger popularity & community
 - cleaner & slimer markup
     - AngularJs
-
-```
-<ul> 
-    <li ng-repeat="framework in frameworks" title="{{framework.description}}">               
-                  {{framework.name}} 
-    </li> 
-</ul>
-```
+    ```
+    <ul> 
+        <li ng-repeat="framework in frameworks" title="{{framework.description}}">               
+                      {{framework.name}} 
+        </li> 
+    </ul>
+    ```
 
     - BackboneJs
-    
-```
-<ul> 
-    <% _.each(frameworks, function(framework) { %> 
-        <li title="<%- framework.description %>"> 
-            <%- framework.name %> 
-        </li> 
-    <% }); %> 
-</ul>
-```
+    ```
+    <ul> 
+        <% _.each(frameworks, function(framework) { %> 
+            <li title="<%- framework.description %>"> 
+                <%- framework.name %> 
+            </li> 
+        <% }); %> 
+    </ul>
+    ```
 
 ## steps taken
 
