@@ -11,6 +11,7 @@ I decided to use the great yeoman angular-fullstack generator, whose purpose it 
 - Frontend Application: [Jade](http://jade-lang.com/), [AngularJs](https://angularjs.org/), [Materialize](http://materializecss.com/)
 - Websockets: [socket.io](http://socket.io/)
 - Persistence: [mongoDB](https://www.mongodb.org/)
+- Testing: [Jasmine](http://jasmine.github.io), [PhantomJs](http://phantomjs.org), [Karma](http://karma-runner.github.io)
 
 ### Frontent Framework
 
@@ -19,9 +20,16 @@ The main reasons I prefered AngularJs over BackboneJs are:
 - it provides two-way data binding
     - traditional way without two-way data binding
     ```
+    <div id="greet-form">
+        <input type="text" class="user-name" />
+        <div class="user-name"></div>
+    </div>
+    ```
+    ```
     $('#greet-form input.user-name').on('value', function() { 
         $('#greet-form div.user-name').text('Hello ' + this.val() + '!'); 
     });
+
     ```
 
     - with two-way data binding and AngularJs
