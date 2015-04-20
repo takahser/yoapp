@@ -65,13 +65,14 @@ section#sectionScrumboard.section-unit
                 .col.s12.m12
                   .card.red(style="margin:0;")
                     .card-content.white-text
-                      span.card-title="{{task.name}}"
+                      textarea#title.materialize-textarea(type='text', placeholder=" ", ng-model='task.name', ng-required='', length='120')
+                        label(for='title') Title
                       textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
                         label(for='description') Description
                     .card-action.white-text(style="border: none;")
                         p
                           i.tiny.mdi-action-perm-identity=" Responsible Person"
-                          input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
+                          textarea.materialize-textarea(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
                         p
                           i.tiny.mdi-device-access-time=" Estimate"
                           select.form-control(type='text', ng-model='task.estimation', ng-required='' class="browser-default black-text")
@@ -119,13 +120,14 @@ section#sectionScrumboard.section-unit
                 .col.s12.m12
                   .card.orange.darken-1(style="margin:0;")
                     .card-content.white-text
-                      span.card-title="{{task.name}}"
+                      textarea#title.materialize-textarea(type='text', placeholder=" ", ng-model='task.name', ng-required='', length='120')
+                        label(for='title') Title
                       textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
                         label(for='description') Description
                     .card-action.white-text(style="border: none;")
                         p
                           i.tiny.mdi-action-perm-identity=" Responsible Person"
-                          input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
+                          textarea.materialize-textarea(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
                         p
                           i.tiny.mdi-device-access-time=" Estimate"
                           select.form-control(type='text', ng-model='task.estimation', ng-required='' class="browser-default black-text")
@@ -172,13 +174,14 @@ section#sectionScrumboard.section-unit
                 .col.s12.m12
                   .card.green.darken-1(style="margin:0;")
                     .card-content.white-text
-                      span.card-title="{{task.name}}"
+                      textarea#title.materialize-textarea(type='text', placeholder=" ", ng-model='task.name', ng-required='', length='120')
+                        label(for='title') Title
                       textarea#description.materialize-textarea(type='text', placeholder=" ", ng-model='task.info', ng-required='', length='120')
                         label(for='description') Description
                     .card-action.white-text(style="border: none;")
                         p
                           i.tiny.mdi-action-perm-identity=" Responsible Person"
-                          input(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
+                          textarea.materialize-textarea(type='text', ng-model='task.personResponsible', placeholder='Date', ng-required='')
                         p
                           i.tiny.mdi-device-access-time=" Estimate"
                           select.form-control(type='text', ng-model='task.estimation', ng-required='' class="browser-default black-text")
@@ -196,7 +199,7 @@ section#sectionScrumboard.section-unit
                         button.btn.btn-primary(type='submit', ng-click='updateTask(task)') Save
 
 section#sectionAddTask.section-unit.blue-grey.lighten-5
-  .container
+  .container(style="margin-top:15px")
     .row
       .col.s12
         h4="Add Task"
@@ -204,7 +207,7 @@ section#sectionAddTask.section-unit.blue-grey.lighten-5
           p.input-group
             .row
               .input-field.col.s12
-                input#newTask(type='text', ng-model='newTask')
+                textarea#newTask.materialize-textarea(type='text', ng-model='newTask', length='120')
                 label(for='newTask') Title
                 //textarea.form-control(type='text', placeholder='Add a info here.', ng-model='newInfo')
               
@@ -229,7 +232,7 @@ section#sectionAddTask.section-unit.blue-grey.lighten-5
                   option(value='Done') Done
 
               .input-field.col.s12
-                input#newPersonResponsible(type='text', ng-model='newPersonResponsible', length='100')
+                textarea#newPersonResponsible.materialize-textarea(type='text', ng-model='newPersonResponsible', length='100')
                 label(for='newPersonResponsible') Person Responsible
 
               .input.field.col.s12
@@ -241,7 +244,9 @@ section#sectionAbout.section-unit
     .row
       .col.s12
         h4="About"
-        p="Autor: Seraya Takahahashi"
+        p="Autor: "
+          a(href='https://github.com/takahser') takahser
+        p="License: MIT"
 
 footer.footer.blue-grey.lighten-5
   .container
