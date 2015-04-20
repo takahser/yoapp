@@ -1,4 +1,4 @@
-# scrumboard
+# yoscrum
 scrumboard app created with the yeoman angular-fullstack generator
 
 ## intro
