@@ -25,6 +25,7 @@ $('#greet-form input.user-name').on('value', function() {
 ```
 
     - with two-way data binding and AngularJs
+
 ```
 <input ng-model="user.name" type="text" />
 Hello {{user.name}}!
@@ -43,6 +44,7 @@ Hello {{user.name}}!
 ```
 
     - BackboneJs
+    
 ```
 <ul> 
     <% _.each(frameworks, function(framework) { %> 
